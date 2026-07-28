@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind_Matrix - Mental Health Awareness</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mind_Matrix</h1>
+        <p>Confidential Mental Health Awareness & Support</p>
+    </header>
+
+    <section class="awareness">
+        <h2>Mental Health Awareness</h2>
+        <p>Learn about common mental health conditions, reduce stigma, and start your journey towards self-care.</p>
+    </section>
+
+    <section class="self-assessment">
+        <h2>Self-Assessment Screening</h2>
+        <form id="stressForm">
+            <label>How stressed do you feel today?</label>
+            <select name="stress" required>
+                <option value="">Select</option>
+                <option value="low">Low Stress</option>
+                <option value="moderate">Moderate Stress</option>
+                <option value="high">High Stress</option>
+            </select>
+
+            <label>How anxious are you?</label>
+            <select name="anxiety" required>
+                <option value="">Select</option>
+                <option value="low">Low Anxiety</option>
+                <option value="moderate">Moderate Anxiety</option>
+                <option value="high">High Anxiety</option>
+            </select>
+
+            <button type="submit">Get Feedback</button>
+        </form>
+        <div id="feedback"></div>
+    </section>
+
+    <section class="guided-support">
+        <h2>Guided Support</h2>
+        <ul>
+            <li>Breathing Exercises</li>
+            <li>Mindfulness Activities</li>
+            <li>Journaling Prompts</li>
+            <li>Stress Management Tips</li>
+        </ul>
+    </section>
+
+    <section class="professional-help">
+        <h2>Professional Help</h2>
+        <p>If needed, reach out to verified mental health resources:</p>
+        <ul>
+            <li><a href="tel:1800112345">Emergency Helpline: 1800-112-345</a></li>
+            <li><a href="https://www.mentalhealth.gov">Mental Health Resources</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mind_Matrix | Confidential & Private</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('stressForm');
+        const feedbackDiv = document.getElementById('feedback');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const stress = form.stress.value;
+            const anxiety = form.anxiety.value;
+
+            let message = "Your Stress & Anxiety Feedback: ";
+            if(stress === "low" && anxiety === "low") {
+                message += "You're doing well! Keep maintaining your mental health.";
+            } else if(stress === "high" || anxiety === "high") {
+                message += "Consider using guided support exercises and reach out if needed.";
+            } else {
+                message += "Monitor your feelings and try self-care activities.";
+            }
+
+            feedbackDiv.innerText = message;
+        });
+    </script>
+</body>
+</html>
